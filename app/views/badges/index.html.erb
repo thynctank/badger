@@ -1,0 +1,18 @@
+<h2>Here's all the badges, and stuff:</h2>
+
+<ul class="badges">
+  <% @badges.each do |b| %>
+      <li>
+          <%= image_tag(b.image) %>
+          <div class="name">
+            <span><%= b.name %></span>
+            <div>
+              <%= link_to "Edit", edit_badge_path(b) %> | 
+              <%= link_to "Kill", badge_path(b), :confirm => "Be sure, bro", :method => :delete %>
+            </div>
+          </div>
+      </li>
+  <% end %>
+</ul>
+
+<%= link_to "Wanna create a badge?", new_badge_path %>

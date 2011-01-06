@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Badger</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<h1>Badger!</h1>
+
+<% if flash[:error] %>
+  <div class="errors">
+    <p><%= flash[:error] %></p>
+  </div>
+<% elsif flash[:success] %>
+  <div class="success">
+      <p><%= flash[:success] %></p>
+  </div>
+<% end %>
+
+<p class="loggedIn">
+  Logged in as <span class="name">Gonzo Gonzales</span>
+</p>
+<p><%= link_to "Logout", "/" %></p>
+
+<%= yield %>
+
+</body>
+</html>

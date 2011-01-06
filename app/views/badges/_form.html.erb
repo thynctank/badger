@@ -1,0 +1,24 @@
+<%= form_for @badge do |f| %>
+  <div class="labelAndField">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= error_for @badge, :name, "It needs a unique name" %>
+  </div>
+  
+  <div class="labelAndField">
+    <%= f.label :image %>
+    <% if @badge.image? %>
+      <div><%= image_tag(@badge.image) %></div>
+    <% end %>
+    <%= f.file_field :image %>
+    <%= error_for @badge, :image, "You have to provide an image for it" %>
+  </div>
+  
+  <div>
+    <% if @badge.new_record? %>
+      <%= submit_tag "Add badge stat!" %>
+    <% else %>
+      <%= submit_tag "Update the badge before I get angry!" %>
+    <% end %>
+  </div>
+<% end %>
