@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110107094754) do
+ActiveRecord::Schema.define(:version => 20110107111612) do
 
   create_table "badges", :force => true do |t|
     t.string   "image_uid"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20110107094754) do
     t.string   "persistence_token", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
 end

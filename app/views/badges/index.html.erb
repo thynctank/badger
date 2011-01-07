@@ -8,8 +8,10 @@
             <span><%= b.name %></span>
             <% if current_user %>
               <div>
-                <%= link_to "Edit", edit_badge_path(b) %> | 
-                <%= link_to "Kill", badge_path(b), :confirm => "Be sure, bro", :method => :delete %> |
+                <% if can? :manage, b %>
+                  <%= link_to "Edit", edit_badge_path(b) %> | 
+                  <%= link_to "Kill", badge_path(b), :confirm => "Be sure, bro", :method => :delete %> |
+                <% end %>
                 <%= link_to "Email", "/" %>
               </div>
             <% end %>
@@ -34,6 +36,6 @@
   <div class="clear"></div>
 <% end %>
 
-<% if current_user %>
+<% if current_user && can?(:manage, @badge) %>
   <%= link_to "Wanna create a badge?", new_badge_path %>
 <% end %>

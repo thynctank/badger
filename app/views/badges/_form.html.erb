@@ -23,6 +23,6 @@
   </div>
 <% end %>
 
-<% if :back %>
-  <p>Or, <%= link_to "go back from whence you came", :back %></p>
+<% if session[:return_to] %>
+  <p>Or, <%= link_to "go back from whence you came", session[:return_to] %></p>
 <% end %>
