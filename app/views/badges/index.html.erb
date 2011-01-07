@@ -36,6 +36,6 @@
   <div class="clear"></div>
 <% end %>
 
-<% if current_user && can?(:manage, @badge) %>
+<% if current_user && can?(:create, Badge) %>
   <%= link_to "Wanna create a badge?", new_badge_path %>
 <% end %>

@@ -1,4 +1,6 @@
 class BadgesController < ApplicationController
+  load_and_authorize_resource :except => :index
+
   def index
     per_page = 10
 
@@ -7,8 +9,6 @@ class BadgesController < ApplicationController
     
     @badges = Badge.limit(per_page).offset((@page - 1) * per_page)
     @total_pages = (Badge.count.to_f/per_page).ceil
-    
-    @badge_dummy = Badge.new
   end
   
   def create
@@ -17,6 +17,7 @@ class BadgesController < ApplicationController
       flash[:success] = "Your badge is home"
       redirect_to badges_path
     else
+      debugger
       flash[:error] = "Stuff was wrong in your badge stuff"
       render :action => "new"
     end
@@ -24,7 +25,6 @@ class BadgesController < ApplicationController
   
   def new
     @badge = Badge.new
-    session[:return_to] = request.referer || nil
   end
   
   def edit
