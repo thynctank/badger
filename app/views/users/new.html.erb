@@ -1,0 +1,17 @@
+<h2>Create an account if you're up to the challenge</h2>
+
+<%= form_for @user do |f| %>
+  <%= f.label :email %><br />
+  <%= f.text_field :email %><br />
+  <%= error_for @user, :email, "Email must be filled in and valid" %>
+  <br />
+  <%= f.label :password %><br />
+  <%= f.password_field :password %><br />
+  <%= error_for @user, :password, "Password must be filled in and valid" %>
+  <br />
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %><br />
+  <%= error_for @user, :password_confirmation, "Password confirmation must be filled in and match password" %>
+  <br />
+  <%= f.submit "Create User" %>
+<% end %>

@@ -7,7 +7,7 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<h1>Badger!</h1>
+<h1><a href="/">Badger!</a></h1>
 
 <% if flash[:error] %>
   <div class="errors">
@@ -19,10 +19,14 @@
   </div>
 <% end %>
 
-<p class="loggedIn">
-  Logged in as <span class="name">Gonzo Gonzales</span>
-</p>
-<p><%= link_to "Logout", "/" %></p>
+<% if current_user %>
+  <p class="loggedIn">
+    Logged in as <span class="email"><%= current_user.email %></span>
+  </p>
+  <p><%= link_to "Logout", user_session_path, :method => :delete %></p>
+<% else %>
+  <p><%= link_to "Login", new_user_session_path %> or <%= link_to "Create account", new_user_path %></p>
+<% end %>
 
 <%= yield %>
 

@@ -7,7 +7,11 @@ gem 'rails', '3.0.3'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem "cancan"
+gem 'cancan'
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.8.1'
+# gem 'authlogic'
+gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'

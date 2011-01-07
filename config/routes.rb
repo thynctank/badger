@@ -1,5 +1,7 @@
 Badger::Application.routes.draw do
   resources :badges, :except => :show
+  resources :users
+  resource :user_session
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -53,7 +55,9 @@ Badger::Application.routes.draw do
   # root :to => "welcome#index"
   
   root :to => "badges#index"
-
+  
+  match '/media(/:dragonfly)', :to => Dragonfly[:images]
+  
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

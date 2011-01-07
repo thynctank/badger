@@ -30,3 +30,7 @@
 .left {
   float: left;
 }
+
+.errors p, .error {
+  color: #ff0000;
+}

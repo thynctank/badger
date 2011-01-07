@@ -3,15 +3,17 @@
 <ul class="badges">
   <% @badges.each do |b| %>
       <li>
-          <%= image_tag(b.image) %>
+          <%= image_tag b.image.url %>
           <div class="name">
             <span><%= b.name %></span>
-            <div>
-              <%= link_to "Edit", edit_badge_path(b) %> | 
-              <%= link_to "Kill", badge_path(b), :confirm => "Be sure, bro", :method => :delete %> |
-              <%= link_to "Email", "/" %>
+            <% if current_user %>
+              <div>
+                <%= link_to "Edit", edit_badge_path(b) %> | 
+                <%= link_to "Kill", badge_path(b), :confirm => "Be sure, bro", :method => :delete %> |
+                <%= link_to "Email", "/" %>
+              </div>
+            <% end %>
             </div>
-          </div>
       </li>
   <% end %>
 </ul>
@@ -32,4 +34,6 @@
   <div class="clear"></div>
 <% end %>
 
-<%= link_to "Wanna create a badge?", new_badge_path %>
+<% if current_user %>
+  <%= link_to "Wanna create a badge?", new_badge_path %>
+<% end %>

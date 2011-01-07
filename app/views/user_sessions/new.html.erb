@@ -1,0 +1,13 @@
+<h2>Login, if you please</h2>
+
+<%= form_for @user_session, :url => user_session_path do |f| %>
+  <%= f.label :email %><br />
+  <%= f.text_field :email %><br />
+  <%= error_for @user_session, :email, "Email must be filled in and valid" %>
+  <br />
+  <%= f.label :password %><br />
+  <%= f.password_field :password %><br />
+  <%= error_for @user_session, :password, "Password must be filled in and valid" %>
+  <br />
+  <%= f.submit "Login" %>
+<% end %>
