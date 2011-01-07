@@ -1,3 +1,32 @@
 * {
   font-family: sans-serif;
 }
+
+.badges {
+  list-style: none;
+}
+
+.badges li {
+  margin: 20px 0;
+}
+
+.pages {
+  list-style: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.pages li {
+  display: block;
+  float: left;
+  margin: 2px;
+}
+
+.clear {
+  clear: both;
+}
+
+.left {
+  float: left;
+}

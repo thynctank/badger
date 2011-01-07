@@ -8,7 +8,8 @@
             <span><%= b.name %></span>
             <div>
               <%= link_to "Edit", edit_badge_path(b) %> | 
-              <%= link_to "Kill", badge_path(b), :confirm => "Be sure, bro", :method => :delete %>
+              <%= link_to "Kill", badge_path(b), :confirm => "Be sure, bro", :method => :delete %> |
+              <%= link_to "Email", "/" %>
             </div>
           </div>
       </li>
@@ -20,10 +21,15 @@
   <ul class="pages">
     <% 1.upto(@total_pages).each do |p| %>
       <li>
-          <a href="/?page=<%= p %>"><%= p %></a>
+          <% if @page != p %>
+            <a href="/?page=<%= p %>"><%= p %></a>
+          <% else %>
+            <%= p %>
+          <% end %>
       </li>
     <% end %>
   </ul>
+  <div class="clear"></div>
 <% end %>
 
 <%= link_to "Wanna create a badge?", new_badge_path %>
