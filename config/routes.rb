@@ -3,6 +3,9 @@ Badger::Application.routes.draw do
   resources :users
   resource :user_session
 
+  match '/email/new/:id' => 'email#new', :as => :new_email
+  match '/email/send/:id' => 'email#send', :as => :send_email
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

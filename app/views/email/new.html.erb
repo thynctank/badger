@@ -1,0 +1,11 @@
+<h2>Emailing <%= @badge.name %></h2>
+
+<p>Enter a destination email and (optionally) Enter a message for your email and hit send</p>
+
+<%= form_tag send_email_path(@badge.id) do %>
+  <%= label_tag :email %><br />
+  <%= text_field_tag :email %><br />
+  <%= label_tag :message %><br />
+  <%= text_area_tag :message, "Hi, #{current_user.email} wanted to share a badge with you!", :rows => 10 %><br />
+  <%= submit_tag 'Send' %>
+<% end %>
