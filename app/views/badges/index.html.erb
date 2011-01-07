@@ -15,4 +15,15 @@
   <% end %>
 </ul>
 
+<% if @total_pages > 1 %>
+  <p>Go to Page:</p>
+  <ul class="pages">
+    <% 1.upto(@total_pages).each do |p| %>
+      <li>
+          <a href="/?page=<%= p %>"><%= p %></a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= link_to "Wanna create a badge?", new_badge_path %>

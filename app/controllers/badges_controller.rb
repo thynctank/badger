@@ -1,11 +1,12 @@
 class BadgesController < ApplicationController
   def index
-    per_page = 20
+    per_page = 10
 
     page = params[:page].to_i
     page = (page > 1) ? page : 1
     
     @badges = Badge.limit(per_page).offset((page - 1) * per_page)
+    @total_pages = (Badge.count.to_f/per_page).ceil
   end
   
   def create
